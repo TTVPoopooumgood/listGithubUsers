@@ -20,6 +20,10 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+      
+      - run: |
+        git config --global user.email "prjwlsingh@gmai.com"
+        git config --global user.name "Prajwal"
 
       - name: Deploy to GitHub Pages
         run: npm run deploy
