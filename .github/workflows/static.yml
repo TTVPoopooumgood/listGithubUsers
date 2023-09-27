@@ -22,7 +22,7 @@ jobs:
         run: npm install
       
       - name: user email
-        run:  git config --global user.email "prjwlsingh@gmai.com"
+        run:  git config --global user.email "prjwlsingh@gmail.com"
         
       - name: user name
         run:  git config --global user.name "prjwlsingh"
