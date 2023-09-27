@@ -1,0 +1,25 @@
+{
+    "name": "listGithubUsers",
+    "version": "1.0.0",
+    "description": "A GitHub user search webpage with API integration",
+    "main": "index.js",
+    "scripts": {
+      "start": "your-start-command",
+      "build": "your-build-command"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/prjwlsingh/listGithubUsers"
+    },
+    "author": "Prajwal",
+    "license": "MIT",
+    "dependencies": {
+      "express": "^5.0.0",
+      "axios": "^0.24.0" // dependency for making HTTP requests
+    },
+    "devDependencies": {},
+    "engines": {
+      "node": ">=14" 
+    }
+  }
+  
