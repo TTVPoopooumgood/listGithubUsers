@@ -15,7 +15,7 @@
     "license": "MIT",
     "dependencies": {
       "express": "^5.0.0",
-      "axios": "^0.24.0" // dependency for making HTTP requests
+      "axios": "^0.24.0" 
     },
     "devDependencies": {},
     "engines": {
