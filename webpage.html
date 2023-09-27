@@ -63,8 +63,9 @@
 
         async function fetchGitHubUsers(query) {
             // using personal access token need to make it private
-            const apiUrl = 'https://unique-flan-da8e8c.netlify.app/.netlify/functions/github?q=';
-            //`https://api.github.com/search/users?q=${query}+in:login&sort=followers&order=desc`;
+            const token = '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';
+            // const apiUrl = 'https://unique-flan-da8e8c.netlify.app/.netlify/functions/github?q=';
+            const apiUrl = `https://api.github.com/search/users?q=${query}+in:login&sort=followers&order=desc`;
 
             try {
                 const response = await fetch(apiUrl, {
