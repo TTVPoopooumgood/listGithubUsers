@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub User Search</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" id="search-box" placeholder="Search GitHub users">
+        <div id="suggestions"></div>
+    </div>
+
+    <script>
+        const searchBox = document.getElementById('search-box');
+        const suggestions = document.getElementById('suggestions');
+
+        async function fetchGitHubUsers(query) {
+            const token = "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";
+            const apiUrl = `https://api.github.com/search/users?q=${query}&sort=followers&order=desc`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    headers: {
+                        Authorization: `token ${token}`,
+                    },
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.items.slice(0, 15); // Get the first 15 users
+                } else {
+                    throw new Error('Failed to fetch GitHub users');
+                }
+            } catch (error) {
+                console.error(error);
+                return [];
+            }
+        }
+
+        async function updateSuggestions() {
+            const input = searchBox.value;
+            const users = await fetchGitHubUsers(input);
+
+            suggestions.innerHTML = '';
+
+            users.forEach(user => {
+                const listItem = document.createElement('li');
+                listItem.textContent = user.login;
+                suggestions.appendChild(listItem);
+            });
+
+            if (input === '') {
+                suggestions.style.display = 'none';
+            } else {
+                suggestions.style.display = 'block';
+            }
+        }
+
+        searchBox.addEventListener('input', updateSuggestions);
+    </script>
+</body>
+</html>
