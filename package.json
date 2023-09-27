@@ -4,7 +4,7 @@
     "description": "A GitHub user search webpage with API integration",
     "main": "index.js",
     "scripts": {
-      "start": "your-start-command",
+      "start": "npm run dev-server",
       "build": "your-build-command"
     },
     "repository": {
