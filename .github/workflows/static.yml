@@ -3,31 +3,32 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # or your main branch name
+      - main
 
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set Up Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: '14'
 
       - name: Install Dependencies
         run: npm install
-      
-      - name: user email
-        run:  git config --global user.email "prjwlsingh@gmail.com"
-        
-      - name: user name
-        run:  git config --global user.name "prjwlsingh"
+
+      - name: Build
+        run: npm run build  # Adjust this command according to your project
 
       - name: Deploy to GitHub Pages
-        run: npm run deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.GITHUB_TOKEN }}  # Use the GitHub Token secret
+          publish_dir: ./build  # Adjust this to your build output directory
         env:
           TOKEN1: ${{ secrets.TOKEN1 }}
+        
