@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Adjust this to your branch name
+      - main 
 
 jobs:
   deploy:
@@ -19,14 +19,14 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: npm install # or yarn install
+        run: npm install 
 
       - name: Build
-        run: npm run build # Replace with your build command if necessary
+        run: npm run build 
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.6
         with:
-          ACCESS_TOKEN: ${{ secrets.TOKEN1 }} # Use your secret here
-          BRANCH: gh-pages # Change to your target branch
-          FOLDER: dist # Change to your build folder if necessary
+          ACCESS_TOKEN: ${{ secrets.TOKEN1 }} 
+          BRANCH: gh-pages 
+          FOLDER: dist 
